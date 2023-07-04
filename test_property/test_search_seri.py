@@ -4,5 +4,6 @@ load_dotenv()
 from langchain.utilities import GoogleSerperAPIWrapper
 
 search = GoogleSerperAPIWrapper()
-ans = search.run("英伟达最近的新闻?")
+ans = search.run("What stock evaluators are saying about Nvidia")
 print(ans)
+print(len(ans))
