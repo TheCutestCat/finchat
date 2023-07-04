@@ -7,6 +7,6 @@ def greet(name):
 
 demo = gr.Interface(fn=greet, inputs="text", outputs="text")
 
-demo.launch()   
+demo.launch(share=True)   
 
 # OK for the window

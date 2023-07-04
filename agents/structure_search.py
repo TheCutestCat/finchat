@@ -142,14 +142,14 @@ class StockGetBestPerformingTool(BaseTool):
 
 
 
-tools = [StockPriceTool()]
+tools = [StockPriceTool(),StockPercentageChangeTool(),StockGetBestPerformingTool()]
 
 llm = ChatOpenAI(temperature=0, model="gpt-3.5-turbo-0613")
 
 structured_search_agent = initialize_agent(tools,
                         llm,
                         agent=AgentType.OPENAI_FUNCTIONS,
-                        verbose=False)
+                        verbose=True)
 
 
 
@@ -178,22 +178,22 @@ class StructuredSearchAgentTool(BaseTool):
 
 if __name__ == "__main__":
     
-    info = "谷歌股票的当前价格是多少？"
+    # info = "谷歌股票的当前价格是多少？"
+    # print('-'*8 + f"{info}"+ '-'*8 )
+    # print(structured_search_agent.run(f"{info}"))
+    # print()
+    
+    info = "谷歌股票的价格是多少？和一年前作比较，股票价格是涨还是跌？"
     print('-'*8 + f"{info}"+ '-'*8 )
     print(structured_search_agent.run(f"{info}"))
     print()
     
-    info = "谷歌股票的价格是多少？和30天前作比较，股票价格是涨还是跌？"
-    print('-'*8 + f"{info}"+ '-'*8 )
-    print(structured_search_agent.run(f"{info}"))
-    print()
+    # info = "苹果股票和谷歌的股票这两者过去三十天哪个上涨幅度更大？"
+    # print('-'*8 + f"{info}"+ '-'*8 )
+    # print(structured_search_agent.run(f"{info}"))
+    # print()
     
-    info = "苹果股票和谷歌的股票这两者过去三十天哪个上涨幅度更大？"
-    print('-'*8 + f"{info}"+ '-'*8 )
-    print(structured_search_agent.run(f"{info}"))
-    print()
-    
-    info = "苹果 谷歌 亚马逊这三者过去三十天表现最好的是哪一个？"
-    print('-'*8 + f"{info}"+ '-'*8 )
-    print(structured_search_agent.run(f"{info}"))
-    print()
+    # info = "苹果 谷歌 亚马逊这三者过去三十天表现最好的是哪一个？"
+    # print('-'*8 + f"{info}"+ '-'*8 )
+    # print(structured_search_agent.run(f"{info}"))
+    # print()

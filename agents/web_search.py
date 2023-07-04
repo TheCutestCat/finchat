@@ -13,7 +13,7 @@ def google_search(question):
     search = GoogleSerperAPIWrapper()
     ans = search.run("question")
     # lenth cutoff
-    max_length = 2000
+    max_length = 3000
     if len(ans) > max_length:
         ans = ans[:max_length]
     return ans
@@ -21,18 +21,18 @@ def google_search(question):
 class GoogleSearchCheckInput(BaseModel):
     """Input for google search check."""
 
-    stockticker: str = Field(..., description="the quesntion for the google search")
+    question: str = Field(..., description="the quesntion for the google search")
     
 class GoogleSearchTool(BaseTool):
     name = "google_search"
-    description = "Useful for when you need to find out information for some companies,You should input the quesntion used on the google search API "
+    description = "Useful for when you need to find out information for some companies,You should input the quesntion used on the google search API."
 
-    def _run(self, stockticker: str):
-        ans = google_search(stockticker)
+    def _run(self, question: str):
+        ans = google_search(question)
 
         return ans
 
-    def _arun(self, stockticker: str):
+    def _arun(self, question: str):
         raise NotImplementedError("This tool does not support async")
 
     args_schema: Optional[Type[BaseModel]] = GoogleSearchCheckInput
