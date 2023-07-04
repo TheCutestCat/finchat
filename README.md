@@ -1,10 +1,10 @@
-target : https://finchat.io/
+示例问题 : 
+1. 过去30天里，微软的股票表现更好还是谷歌的股票表现更好？
+2. 专业投资机构对苹果股票是怎样评价的？ 我应该投资苹果股票吗？
+3. 富士康的员工有多少人
+4. 纳斯达克指数在过去一年的变化？ 和投资美国国债相比，这一年哪种投资更好？
+5. 专业投资机构对苹果股票是怎样评价的？ 我应该投资苹果股票吗？
 
-use : 
-- OPENAI API
-- langchain
-- API for stock matket
-- gradio
-- prompt optimization
-
-
+效果评价：
+1. 函数调用结果很棒（检索yfinance库）
+2. 搜索外部的信息会因为文本过长而导致结果不是很理想（使用的是google search API）
